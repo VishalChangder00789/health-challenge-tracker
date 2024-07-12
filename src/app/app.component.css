@@ -1,0 +1,16 @@
+/* Parent Component CSS */
+.toolbar {
+  /* border: 2px solid blue; */
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-holder {
+  /* border: 2px solid yellow; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5%;
+}

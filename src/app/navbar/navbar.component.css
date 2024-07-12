@@ -1,0 +1,11 @@
+.health-tracker-main {
+  /* border: 2px solid red; */
+  height: 4em;
+  display: flex;
+  align-items: center;
+  padding-left: 2%;
+  font-size: 18px;
+  background: rgba(0, 0, 0, 0.819);
+  color: white;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.345);
+}

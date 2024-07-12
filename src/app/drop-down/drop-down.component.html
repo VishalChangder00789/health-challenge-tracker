@@ -1,0 +1,25 @@
+<div class="dropdown">
+  <label>Workout Type</label>
+  <button
+    class="dropdown-toggle"
+    type="button"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+    (click)="onDropdownActivate()"
+  >
+    {{ selectedOption ? selectedOption : "Select an option" }}
+  </button>
+  <div
+    *ngIf="isOpen"
+    class="dropdown-menu"
+    aria-labelledby="dropdownMenuButton"
+  >
+    <a
+      class="dropdown-item"
+      *ngFor="let option of options"
+      (click)="onSelect(option)"
+      >{{ option }}</a
+    >
+  </div>
+</div>
