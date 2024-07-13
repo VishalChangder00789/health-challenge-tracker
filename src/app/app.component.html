@@ -1,7 +1,22 @@
-<!-- Parent Component HTML -->
 <div class="toolbar" role="banner">
   <app-navbar></app-navbar>
   <app-form class="form-holder"></app-form>
+  <div class="seperator">
+    <div></div>
+  </div>
+  <div class="utility-main">
+    <app-search
+      class="search-container-holder"
+      (search)="onSearch($event)"
+    ></app-search>
+    <app-drop-down
+      (emitSelectedOption)="onOptionSelected($event)"
+      class="app-dropdown-holder"
+      [options]="['Cycling', 'Running', 'Gym', 'Yoga']"
+      [class.dropdown-holder]="true"
+    ></app-drop-down>
+  </div>
+  <app-display [tableData]="filteredData"></app-display>
 </div>
 
 <router-outlet></router-outlet>

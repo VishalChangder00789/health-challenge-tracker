@@ -10,21 +10,23 @@
     />
   </div>
 
-  <app-drop-down
-    (emitSelectedOption)="onOptionSelected($event)"
-    class="dropdown-holder"
-    [options]="['Cycling', 'Running', 'Gym', 'Yoga']"
-  ></app-drop-down>
+  <div class="form-inputs-holder-main">
+    <app-drop-down
+      (emitSelectedOption)="onOptionSelected($event)"
+      class="dropdown-holder"
+      [options]="['Cycling', 'Running', 'Gym', 'Yoga']"
+    ></app-drop-down>
 
-  <div class="input-main">
-    <label>Workout Minutes</label>
-    <input
-      placeholder="Minutes"
-      type="number"
-      id="minutes"
-      [(ngModel)]="minutes"
-      name="minutes"
-    />
+    <div class="form-input-main">
+      <label>Workout Minutes</label>
+      <input
+        placeholder="Minutes"
+        type="number"
+        id="minutes"
+        [(ngModel)]="minutes"
+        name="minutes"
+      />
+    </div>
   </div>
 
   <button class="form-button" (click)="onSubmit()">Submit</button>

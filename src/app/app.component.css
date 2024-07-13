@@ -14,3 +14,40 @@
   align-items: center;
   padding: 5%;
 }
+
+.utility-main {
+  /* border: 2px solid yellow; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 5%;
+}
+
+.search-container-holder {
+  /* border: 2px solid hotpink; */
+  height: 100%;
+  width: 40%;
+}
+
+.app-dropdown-holder {
+  /* border: 2px solid blue; */
+  width: 40%;
+  background: #e0e2ec;
+  border-bottom: 2px solid black;
+  border-radius: 7px 7px 0px 0px;
+}
+
+.seperator {
+  width: 100%;
+  /* border: 2px solid grey; */
+  margin: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.seperator > div {
+  border: 1px solid rgba(39, 38, 38, 0.21);
+  width: 80%;
+}

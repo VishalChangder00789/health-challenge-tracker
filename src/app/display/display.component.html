@@ -1,0 +1,28 @@
+<!-- Existing HTML structure with Angular directives -->
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Workout Type</th>
+      <th>Minutes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of pagedItems">
+      <td>{{ user.name }}</td>
+      <td>
+        <ul>
+          <li *ngFor="let workout of user.workouts">
+            {{ workout.type }}: {{ workout.minutes }} mins
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<pagination-controls
+  (pageChange)="pageChanged($event)"
+  [maxSize]="5"
+  [(ngModel)]="currentPage"
+></pagination-controls>

@@ -37,7 +37,8 @@ export class FormComponent {
     } else {
       // if there is no existing user , searched through name
       let nextId = this.userService.getUserData().value.length + 1;
-      const workouts = { type: this.type, minutes: this.minutes };
+      const workouts = [];
+      workouts.push({ type: this.type, minutes: this.minutes });
       const user = { id: nextId, name: this.name, workouts };
 
       this.userService.addUser(user);
