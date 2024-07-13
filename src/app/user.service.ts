@@ -86,6 +86,46 @@ export class UserService {
         { type: "Cycling", minutes: 45 },
       ],
     },
+    {
+      id: 11,
+      name: "Sophia G",
+      workouts: [
+        { type: "Running", minutes: 40 },
+        { type: "Yoga", minutes: 60 },
+      ],
+    },
+    {
+      id: 12,
+      name: "Michael A",
+      workouts: [
+        { type: "Cycling", minutes: 55 },
+        { type: "Running", minutes: 25 },
+      ],
+    },
+    {
+      id: 13,
+      name: "Emma W",
+      workouts: [
+        { type: "Swimming", minutes: 70 },
+        { type: "Yoga", minutes: 40 },
+      ],
+    },
+    {
+      id: 14,
+      name: "Daniel M",
+      workouts: [
+        { type: "CrossFit", minutes: 60 },
+        { type: "Cycling", minutes: 45 },
+      ],
+    },
+    {
+      id: 15,
+      name: "Daniel D",
+      workouts: [
+        { type: "CrossFit", minutes: 60 },
+        { type: "Cycling", minutes: 45 },
+      ],
+    },
   ];
 
   private userDataSubject = new BehaviorSubject<any[]>(this.userData);

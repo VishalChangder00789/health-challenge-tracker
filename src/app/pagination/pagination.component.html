@@ -1,0 +1,7 @@
+<div class="pagination-main">
+  <div (click)="onPreviousLoad()">Previous</div>
+  <div *ngFor="let page of pages; let i = index" class="page-number">
+    <div>{{ page }}</div>
+  </div>
+  <div (click)="onNextLoad()">Next</div>
+</div>

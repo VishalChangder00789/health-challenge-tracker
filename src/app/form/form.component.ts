@@ -1,6 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { UserService } from "../user.service";
 import { __values } from "tslib";
+import { DisplayComponent } from "../display/display.component";
 
 @Component({
   selector: "app-form",
@@ -13,6 +14,7 @@ export class FormComponent {
   minutes: number = 0;
 
   constructor(private userService: UserService) {}
+  @ViewChild(DisplayComponent) displayComponent!: DisplayComponent;
 
   ifUserExists(users: any[], name: string): boolean {
     return users.some((user) => user.name === name);
@@ -46,6 +48,7 @@ export class FormComponent {
       this.name = "";
       this.type = "";
       this.minutes = 0;
+      this.displayComponent.setPage(1);
     }
   }
 

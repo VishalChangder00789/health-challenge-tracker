@@ -1,4 +1,4 @@
-import { Component, OnInit, SimpleChanges } from "@angular/core";
+import { Component, OnInit, SimpleChanges, OnChanges } from "@angular/core";
 import { UserService } from "./user.service";
 
 @Component({
@@ -16,18 +16,17 @@ export class AppComponent implements OnInit {
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-    this.showCaseData = this.userService.getUserData().value;
-    this.filteredData = [...this.showCaseData]; // Initialize filtered data
-  }
+    // this.showCaseData = this.userService.getUserData().value;
+    // this.filteredData = [...this.showCaseData]; // Initialize filtered data
 
-  ngOnChanges() {
-    console.log("Ran");
-    this.filteredData = this.userService.getUserData().value;
+    this.userService.getUserData().subscribe((data) => {
+      this.showCaseData = data;
+      this.applyFilters(); // Apply filters to update filteredData
+    });
   }
 
   onSearch(term: string): void {
     this.searchString = term;
-    console.log(this.searchString);
     this.applyFilters();
   }
 
@@ -55,6 +54,6 @@ export class AppComponent implements OnInit {
     }
 
     this.filteredData = [...data];
-    console.log("Filtered Data", this.filteredData);
+    // console.log("Filtered Data", this.filteredData);
   }
 }

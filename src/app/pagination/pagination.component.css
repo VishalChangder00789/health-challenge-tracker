@@ -1,0 +1,15 @@
+.pagination-main {
+  border: 2px solid yellow;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.page-number {
+  border: 2px solid blue;
+  width: 20%;
+}
+
+.page-item {
+  border: 2px solid black;
+  width: 100%;
+}

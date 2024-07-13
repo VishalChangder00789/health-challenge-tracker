@@ -21,8 +21,27 @@
   </tbody>
 </table>
 
-<pagination-controls
+<!-- <pagination-controls
   (pageChange)="pageChanged($event)"
   [maxSize]="5"
   [(ngModel)]="currentPage"
-></pagination-controls>
+></pagination-controls> -->
+
+<!-- <pagination-controls
+  (pageChange)="pageChanged($event)"
+  [maxSize]="5"
+  [(ngModel)]="currentPage"
+></pagination-controls> -->
+
+<!-- <pagination-controls
+  (pageChange)="pageChanged($event)"
+  [maxSize]="10"
+  [(ngModel)]="currentPage"
+></pagination-controls> -->
+
+<app-pagination
+  (nextLoader)="onNextPageChange($event)"
+  (previousLoader)="onPreviousPageChange($event)"
+  [totalPage]="totalPage"
+  [currentPage]="currentPage"
+></app-pagination>

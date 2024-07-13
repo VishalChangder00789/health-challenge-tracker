@@ -21,34 +21,52 @@ export class DisplayComponent implements OnInit {
   pagedItems: any[] = [];
   currentPage = 1;
   pageSize = 5; // Number of items per page
+  totalPage = 0;
 
   // constructor(private userService: UserService) {}
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
     this.pagedItems = this.tableData;
     this.setPage(1); // Initialize with first page of data : immedietly setting
+    this.totalPage = this.tableData.length / this.pageSize;
   }
 
+  // For filtering and searching
   ngOnChanges(change: SimpleChanges) {
     if (change["tableData"]) {
       this.setPage(1);
+      this.totalPage = Math.ceil(this.tableData.length / this.pageSize);
     }
+
+    this.userService.getUserData().subscribe((user) => {
+      this.tableData = user;
+    });
   }
 
-  setPage(page: number): void {
+  public setPage(page: number): void {
     this.currentPage = page; // 1
     const startIndex = (page - 1) * this.pageSize; // 0
     const endIndex = startIndex + this.pageSize; // 5
-    this.pagedItems = this.tableData.slice(startIndex, endIndex); // 0 -4
-    console.log(this.pagedItems);
-    this.cdr.detectChanges(); // force state reload
-    console.log(this.pagedItems);
+    let changingData = this.tableData.slice(startIndex, endIndex);
+    this.pagedItems = [...changingData]; // 0 -4
   }
 
   pageChanged(event: any): void {
-    console.log(event);
     this.currentPage = event;
     this.setPage(event);
+  }
+
+  onPreviousPageChange(currentpage: number): void {
+    this.currentPage = currentpage;
+    // console.log(this.currentPage);
+    this.setPage(currentpage);
+  }
+
+  onNextPageChange(currentpage: number): void {
+    this.currentPage = currentpage;
+    // console.log(this.currentPage);
+
+    this.setPage(currentpage);
   }
 }

@@ -10,6 +10,7 @@ import { FormComponent } from "./form/form.component";
 import { DropDownComponent } from "./drop-down/drop-down.component";
 import { SearchComponent } from "./search/search.component";
 import { DisplayComponent } from "./display/display.component";
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { DisplayComponent } from "./display/display.component";
     DropDownComponent,
     SearchComponent,
     DisplayComponent,
+    PaginationComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, NgxPaginationModule],
   providers: [],
