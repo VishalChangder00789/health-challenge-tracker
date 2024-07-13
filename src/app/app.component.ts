@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, SimpleChanges } from "@angular/core";
 import { UserService } from "./user.service";
 
 @Component({
@@ -18,6 +18,11 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.showCaseData = this.userService.getUserData().value;
     this.filteredData = [...this.showCaseData]; // Initialize filtered data
+  }
+
+  ngOnChanges() {
+    console.log("Ran");
+    this.filteredData = this.userService.getUserData().value;
   }
 
   onSearch(term: string): void {

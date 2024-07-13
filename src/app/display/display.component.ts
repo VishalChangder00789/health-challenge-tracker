@@ -26,7 +26,14 @@ export class DisplayComponent implements OnInit {
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
+    this.pagedItems = this.tableData;
     this.setPage(1); // Initialize with first page of data : immedietly setting
+  }
+
+  ngOnChanges(change: SimpleChanges) {
+    if (change["tableData"]) {
+      this.setPage(1);
+    }
   }
 
   setPage(page: number): void {
@@ -34,7 +41,8 @@ export class DisplayComponent implements OnInit {
     const startIndex = (page - 1) * this.pageSize; // 0
     const endIndex = startIndex + this.pageSize; // 5
     this.pagedItems = this.tableData.slice(startIndex, endIndex); // 0 -4
-    // this.cdr.detectChanges(); // force state reload
+    console.log(this.pagedItems);
+    this.cdr.detectChanges(); // force state reload
     console.log(this.pagedItems);
   }
 
