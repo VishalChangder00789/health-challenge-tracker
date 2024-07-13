@@ -1,21 +1,27 @@
 <!-- Existing HTML structure with Angular directives -->
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Workout Type</th>
-      <th>Minutes</th>
+<table class="w-full h-[100%] flex flex-col justify-center items-center">
+  <thead class="w-[80%] flex items-center justify-center">
+    <tr class="w-[100%] flex">
+      <th class="w-[33%] flex">Name</th>
+      <th class="w-[33%] flex">Workout Type</th>
+      <th class="w-[33%] flex">Number of Workouts</th>
+      <th class="w-[33%] flex">Minutes</th>
     </tr>
   </thead>
-  <tbody>
-    <tr *ngFor="let user of pagedItems">
-      <td>{{ user.name }}</td>
-      <td>
-        <ul>
-          <li *ngFor="let workout of user.workouts">
-            {{ workout.type }}: {{ workout.minutes }} mins
-          </li>
-        </ul>
+  <tbody class="w-[80%] flex flex-col">
+    <tr
+      class="mt-[2px] w-full h-full flex items-center text-[14px] font-sans border justify-around"
+      *ngFor="let user of pagedItems"
+    >
+      <td class="w-1/4 border-t black-900 h-full">{{ user.name }}</td>
+      <td class="w-1/4 border-t border-black-900 flex">
+        <div *ngFor="let workout of user.workouts">{{ workout.type }} ,</div>
+      </td>
+      <td class="w-1/4 border-t border-black-900">
+        <div>{{ getTotalWorkouts(user.workouts) }}</div>
+      </td>
+      <td class="w-1/4 border-t border-black-900">
+        <div>{{ getTotalWorkoutMinutes(user.workouts) }}</div>
       </td>
     </tr>
   </tbody>

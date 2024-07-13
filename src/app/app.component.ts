@@ -1,10 +1,17 @@
-import { Component, OnInit, SimpleChanges, OnChanges } from "@angular/core";
+import {
+  Component,
+  ViewEncapsulation,
+  OnInit,
+  SimpleChanges,
+  OnChanges,
+} from "@angular/core";
 import { UserService } from "./user.service";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"],
+  encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements OnInit {
   title = "health-challenge-tracker";
@@ -16,9 +23,6 @@ export class AppComponent implements OnInit {
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-    // this.showCaseData = this.userService.getUserData().value;
-    // this.filteredData = [...this.showCaseData]; // Initialize filtered data
-
     this.userService.getUserData().subscribe((data) => {
       this.showCaseData = data;
       this.applyFilters(); // Apply filters to update filteredData

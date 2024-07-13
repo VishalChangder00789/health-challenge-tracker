@@ -1,6 +1,9 @@
-<div class="pagination-main">
+<div class="flex justify-center items-center mt-[5%]">
   <div (click)="onPreviousLoad()">Previous</div>
-  <div *ngFor="let page of pages; let i = index" class="page-number">
+  <div
+    *ngFor="let page of pages; let i = index"
+    class="flex justify-center items-center border border-red-900 w-[2em] ml-[2%] mr-[2%]"
+  >
     <div>{{ page }}</div>
   </div>
   <div (click)="onNextLoad()">Next</div>

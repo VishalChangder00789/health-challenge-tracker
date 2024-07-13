@@ -26,10 +26,16 @@ export class PaginationComponent implements OnInit {
 
   onPreviousLoad() {
     this.currentPageToDisplay--;
+    if (this.currentPageToDisplay <= 0) {
+      this.currentPageToDisplay = 1;
+    }
     this.previousLoader.emit(this.currentPageToDisplay);
   }
   onNextLoad() {
     this.currentPageToDisplay++;
+    if (this.currentPageToDisplay > this.totalPage) {
+      this.currentPageToDisplay = this.totalPage;
+    }
     this.nextLoader.emit(this.currentPageToDisplay);
   }
 

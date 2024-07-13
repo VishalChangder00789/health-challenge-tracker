@@ -69,4 +69,16 @@ export class DisplayComponent implements OnInit {
 
     this.setPage(currentpage);
   }
+
+  getTotalWorkouts(workouts: any) {
+    return workouts.length;
+  }
+  getTotalWorkoutMinutes(workout: any): Number {
+    let minutes = 0;
+    for (let i = 0; i < workout.length; i++) {
+      minutes += workout[i].minutes;
+    }
+
+    return minutes;
+  }
 }
